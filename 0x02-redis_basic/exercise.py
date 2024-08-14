@@ -21,7 +21,7 @@ def call_history(method: Callable) -> Callable:
         Callable: The wrapped method.
     """
     @wraps(method)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         """Defines a wrapper"""
         self = args[0]
 
@@ -55,7 +55,7 @@ def count_calls(method: Callable) -> Callable:
         Callable: The wrapped method.
     """
     @wraps(method)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         """Defines a wrapper"""
         # Access the Redis instance via the first argument (self)
         self = args[0]
@@ -134,7 +134,7 @@ class Cache:
 
         return self.get(key, fn=int)
 
-    def replay(method: Callable):
+    def replay(method: Callable) -> Any:
         """
         Displays the history of calls of a particular function.
 
