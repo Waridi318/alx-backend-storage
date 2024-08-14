@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""This module uses the requests module to
+obtain the HTML content of a particular URL and returns it.
+"""
+
+
 import redis
 import requests
 import time
