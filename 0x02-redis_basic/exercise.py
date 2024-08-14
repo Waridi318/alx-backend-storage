@@ -22,6 +22,7 @@ def call_history(method: Callable) -> Callable:
     """
     @wraps(method)
     def wrapper(*args, **kwargs):
+        """Defines a wrapper"""
         self = args[0]
 
         # Generate the Redis keys for inputs and outputs
@@ -55,6 +56,7 @@ def count_calls(method: Callable) -> Callable:
     """
     @wraps(method)
     def wrapper(*args, **kwargs):
+        """Defines a wrapper"""
         # Access the Redis instance via the first argument (self)
         self = args[0]
 
