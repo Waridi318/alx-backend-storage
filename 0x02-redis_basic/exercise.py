@@ -13,7 +13,7 @@ class Cache:
     """This class creates an instnce of the Redis class
     """
 
-    def __inti__(self):
+    def __init__(self):
         """Constructor"""
         self._redis = redis.Redis()
         self._redis.flushdb()
@@ -30,5 +30,5 @@ class Cache:
         """
 
         key = str(uuid.uuid4())
-        self.set = (key, data)
+        self._redis.set(key, data)
         return key
